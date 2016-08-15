@@ -29,27 +29,5 @@ namespace HomeSite.Controllers
             }
             return View(contents);
         }
-
-        //DELETE AFTER INTEGRATION TESTS IF IT REMAINS UNIMPORTANT.
-        //public async Task<ActionResult> CheckClaims()
-        //{
-        //    var userManager = HttpContext.GetOwinContext().GetUserManager<ApplicationUserManager>();
-        //    var claims = await userManager.GetClaimsAsync("0b85d36d-2af4-4c1d-a241-c83b72758c9d");
-        //    return View("Index");
-        //}
-
-        //CHECK JSON RETURN VALUE FOR HTTPNOTFOUNDRESULT.
-        //public ActionResult RedirectToUpdatedContent(string content, string type)
-        //{
-        //    switch (type)
-        //    {
-        //        case "Photo":
-        //            return RedirectToAction("Index", "Photo", new { content = content });
-        //        case "Article":
-        //            return RedirectToAction("Index", "Article");
-        //        default:
-        //            return new HttpNotFoundResult();
-        //    }
-        //}
     }
 }
