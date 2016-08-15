@@ -1,0 +1,200 @@
+﻿html, body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+}
+
+@font-face {
+    font-family: Go;
+    src: url('fonts/gotham-black.woff') format('woff');
+    src: url('fonts/gotham-black.eot') format('embedded-opentype'), url('fonts/gotham-black.ttf') format('truetype');
+}
+
+body {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    font-size: 40px;
+    /*overflow: hidden;*/
+}
+
+img, embed, object, video{
+    max-width: 100%;
+}
+
+#main {
+    display: flex;
+    -ms-flex-flow: column nowrap;
+    -webkit-flex-flow: column nowrap;
+    flex-flow: column nowrap;
+    align-items: center;
+    height: 922px;
+}
+
+.container {
+    border: 1px solid black;
+    border-radius: .7%;
+}
+
+.navbar-top {
+    position: relative;
+    width:  100vw;
+    font-size: 16px;
+    font-weight: bolder;
+    font-style: italic;
+    display: flex;
+    -ms-flex-flow: row nowrap;
+    -webkit-flex-flow: row nowrap;
+    flex-flow: row nowrap;
+    flex-grow: .5;
+    justify-content: center;
+    align-items: flex-end;
+    margin-bottom: .5%;
+}
+
+
+
+
+.navbar-name-text {
+    font-family: 'Segoe UI';
+    font-weight: 200;
+    max-width: 12%;
+    font-style: italic;
+    font-size: 1.7em;
+    position: relative;
+    -ms-flex: 1 1 auto;
+    -webkit-flex: 1 1 auto;
+    flex: 1 1 auto;
+}
+
+    .navbar-name-text a {
+        text-decoration: none;
+        color: black;
+    }
+
+.navbar-top .certification-image {
+    max-width: 4%;
+    -ms-flex: 0 1 auto;
+    -webkit-flex: 0 1 auto;
+    flex: 0 1 auto;
+}
+
+.nav-buttons {
+    display: flex;
+    -ms-flex-direction: row;
+    -webkit-flex-direction: row;
+    flex-direction: row;
+    justify-content: flex-end;
+    font-size: 1.4em;
+    position: relative;
+    max-width: 700px;
+    margin: 0;
+    -ms-flex: 1 1 auto;
+    -webkit-flex: 1 1 auto;
+    flex: 1 1 auto;
+}
+
+    .nav-buttons a {
+        display: inline-block;
+        padding-right: 1.5rem;
+        font-family: Go;
+                text-decoration: none;
+    }
+        .nav-buttons a:visited {
+            color: black;
+        }
+
+.inactive-nav-button {
+    display: inline-block;
+    color: rgb(217, 217, 217);
+}
+
+#top-loading-gif {
+    display: flex;
+    height: 1.8em;
+    -ms-flex: 0 0 auto;
+    -webkit-flex: 0 0 auto;
+    flex: 0 0 auto;
+    visibility: hidden;
+}
+
+.login-container {
+    position: relative;
+    display: inline-block;
+    margin: 0;
+    left: 1.5%;
+    max-width: 12%;
+    -ms-flex: 1 1 auto;
+    -webkit-flex: 1 1 auto;
+    flex: 1 1 auto;
+}
+
+    .login-container ul {
+        color: black;
+        font-size: 1.2em;
+        position: relative;
+        margin: 0;
+        font-family: Go;
+    }
+
+    .login-container a:link {
+        color: black;
+        text-decoration: none;
+    }
+
+
+
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+
+.center-content-container {
+    display: flex;
+    -ms-flex-flow: row wrap;
+    -webkit-flex-flow: row wrap;
+    flex-flow: row wrap;
+    width: 64%;
+    max-height: 90%;
+    padding: 1rem;
+    border: 1px solid black;
+    border-radius: .4rem;
+    flex-grow: 50;
+}
+
+footer {
+    width: 100%;
+    font-size: .35em;
+    padding-top: 1rem;
+    flex-grow: .2;
+}
+
+    footer div {
+        position: relative;
+        left: 18%;
+        font-family: 'Segoe UI';
+    }
+
+
+@media all and (max-device-width : 1366px) {
+    .navbar-top {
+        font-size: .7rem;
+    }
+
+    .nav-buttons {
+        max-width: 520px;
+    }
+
+    .login-container {
+        max-width: 10%;
+    }
+    #main{
+        height: 618px;
+        font-size: 26px;
+    }
+}
+
+@media (max-device-width : 1200px) {
+}

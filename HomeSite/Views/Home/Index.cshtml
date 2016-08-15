@@ -1,0 +1,143 @@
+﻿@using HomeSiteDomain.Models.Home;
+@model List<HomeSiteDomain.Models.Home.ContentUpdate>
+@{
+    ViewBag.Title = "Welcome to Karnsite.";
+    ContentUpdate element;
+}
+
+<main>
+    <section id="welcome-text">
+        <h1>
+            Welcome to Karnsite!
+        </h1>
+        <p>
+            To browse this website, select one of the navigation menus at the top or go straight to the newest updates by browsing the square menu to the right.
+        </p>
+        <p>
+            Thanks for visiting!
+        </p>
+    </section>
+    <section id="squared-navigator">
+        <div id="squared-navigator-container">
+            <div id="squared-navigator-container-background">
+                <div class="squared-row">
+                    <div class="squared-unit">
+                        <div id="squared-unit-profile-background">
+                            <a href="@Url.Action("Index", "AboutMe")">
+                                <p>Profile</p>
+                            </a>
+                        </div>
+                    </div>
+
+                    @for (int x = 0; x < 2; x++)
+                    {
+                        element = Model.ElementAt(x);
+                        switch (element.Type)
+                        {
+                            case ContentType.Photo:
+
+                                <div class="squared-unit">
+                                    <div class="squared-unit-background">
+                                        <a href="@Url.Action("Index", "Photo", new { content = element.RouteValue })" data-name="@element.Name" data-date="@element.DateCreated.ToShortDateString()" data-type="Photography" data-routevalue="@element.RouteValue">
+                                            <div class="content-image-background">
+                                                    <img src="@element.Content" />
+                                                </div>
+                                                <h2>Photo page</h2>
+                                        </a>
+                                    </div>
+                                </div>
+                                break;
+                        }
+
+                        //Add more cases when more pages are added.
+
+                    }
+                </div>
+
+                <div class="squared-row" id="squared-details-row">
+                    <div class="squared-unit">
+                        <div id="squared-unit-details-background">
+                                <h2>Karnsite</h2>
+                                <div class="details-font-container">
+                                    <div class="details-font"> <h4>Name: </h4> <p>Name of Photo</p> </div>
+                                    <div class="details-font"> <h4>Added Date: </h4> <p>25/05/1932</p> </div>
+                                    <div class="details-font"> <h4>Type: </h4> <p>Photography</p> </div>
+                                </div>
+                            </div>
+                    </div>
+                    @{
+                        element = Model.ElementAt(2);
+                        switch (element.Type)
+                        {
+                            case ContentType.Photo:
+                                string[] albumIndex = element.RouteValue.Split(new char[] { '|' });
+                                <div class="squared-unit">
+                                    <div class="squared-unit-background">
+                                        <a href="@Url.Action("Index", "Photo", new { content = element.RouteValue })" data-name="@element.Name" data-date="@element.DateCreated.ToShortDateString()" data-type="Photography" data-routevalue="@element.RouteValue">
+                                            <div class="content-image-background">
+                                                <img src="@element.Content" />
+                                            </div>
+                                            <h2>Photo Page</h2>
+                                        </a>
+                                    </div>
+                                </div>
+                                break;
+                        }
+                    }
+                </div>
+
+                <div class="squared-row">
+                    @for (int x = 3; x < 6; x++)
+                    {
+                        element = Model.ElementAt(x);
+                        switch (element.Type)
+                        {
+                            case ContentType.Photo:
+                                string[] albumIndex = element.RouteValue.Split(new char[] { '|' });
+                                <div class="squared-unit">
+                                    <div class="squared-unit-background">
+                                        <a href="@Url.Action("Index", "Photo", new { content = element.RouteValue })" data-name="@element.Name" data-date="@element.DateCreated.ToShortDateString()" data-type="Photography" data-routevalue="@element.RouteValue">
+                                            <div class="content-image-background">
+                                                <img src="@element.Content" />
+                                            </div>
+                                            <h2>Photo page</h2>
+                                        </a>
+                                    </div>
+                                </div>
+                                break;
+
+                            //Add more cases when more pages are added.
+                        }
+
+                    }
+                </div>
+
+            </div>
+        </div>
+        <div id="warning-container">
+            <h1>Warning!</h1>
+            <p>This is a test website. As such, it is still under construction and does not support mobile browsing yet. Please try it out using a maximized desktop browser.</p>
+        </div>
+    </section>
+
+</main>
+
+
+
+
+
+@section Css{
+    <link rel="stylesheet" href="~/Content/Stylesheets/home.css" />
+    <!--[if IE]>
+        <style>
+            .details-font-container{
+            margin-left: 0;
+        }
+        </style>
+    <![endif]-->
+
+}
+
+@section scripts {
+    <script src="~/Scripts/Home/Home.js"></script>
+}

@@ -1,0 +1,190 @@
+﻿body {
+    color: white;
+    font-size: 1.5rem;
+    font-family: 'Segoe UI';
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+p{
+    margin: 0;
+}
+
+form {
+    display: flex;
+    flex-flow: column wrap;
+}
+
+.center-content-container{
+    background-image: url('../Images/Home/homebg.jpg');
+    background-size: 100%;
+}
+
+#top-division {
+    display: flex;
+    -ms-flex-flow: row wrap;
+    -webkit-flex-flow: row wrap;
+    flex-flow: row wrap;
+    flex-grow: .3;
+}
+
+
+dd{
+    margin-bottom: 2%;
+}
+
+dt{
+    font-size: 1.4rem;
+    font-weight: 400;
+    margin-bottom: 1%;
+}
+
+h2{
+    font-weight: bolder;
+}
+
+h4{
+    margin: 0;
+}
+
+hr{
+    width: 100%;
+    margin: 15px 0 30px 0;
+}
+
+.manage-container{
+    position: relative;
+    border: 6px solid white;
+    border-radius: 6px;
+    margin: 3em;
+    flex-grow: 1;   
+    display:flex;
+}
+
+.manage-container-background {
+    position: relative;
+    width: 100%;
+    background-color: rgba(40,50,70, .55);
+    border: 1px solid black;
+    order: 1;
+    padding: 1.5em;
+    display: flex;
+    -ms-flex-direction: column;
+    -webkit-flex-direction: column;
+    flex-direction: column;
+}
+
+.manage-content {
+    position: relative;
+    display: flex;
+    -ms-flex-flow: column wrap;
+    -webkit-flex-flow: column wrap;
+    flex-flow: column wrap;
+    flex-grow: 1;
+    align-items: stretch;
+}
+
+.manage-content-background {
+    position: relative;
+    margin: 0;
+    background-color: white;
+    color: black;
+    padding: 1.5em;
+    border: 1px solid black;
+    border-radius: 4px;
+}
+
+#manage-top{
+    display: flex;
+    flex-grow: 1;
+}
+
+#manage-bot{
+    display: flex;
+    flex-grow: 1;
+}
+
+.manage-content a{
+    color: white;
+}
+
+#manage-index a{
+    text-decoration: none;
+}
+
+#manage-index dl{
+    position: relative;
+    background-color: white;
+    display: inline-block;
+    color: black;
+    padding: 2%;
+    margin: 2% 0 0 0;
+    font-weight: 300;
+    height: 70%;
+    width: 40%;
+}
+
+#top-division h2{
+    margin: 1em 1em .4em 0;
+    width: 100%;
+}
+
+#top-division h4{
+    width: 15em;
+}
+
+#top-division h4:nth-of-type(2){
+    position: relative;
+    left: 10em;
+}
+
+#top-division hr{
+    height: .1em;
+}
+
+
+#change-password-content{
+    position: relative;
+    background-color: white;
+    padding: 2%;
+    height: 86%;
+    width: 30%;
+    top: 8%;
+    color: black;
+    padding-left: 3.5%;
+}
+
+#change-password-content label{
+    font-weight: 400;
+}
+
+#change-password-content .col-md-10{
+    margin-bottom: 1%;
+}
+
+.identity-form {
+    -ms-flex: 2 1 auto;
+    -webkit-flex: 2 1 auto;
+    flex: 2 1 auto;
+    margin: 0 0 0 2em;
+}
+
+#identity-form {
+    -ms-flex: 1 1 auto;
+    -webkit-flex: 1 1 auto;
+    flex: 1 1 auto;
+}
+
+.control-label{
+    display: inline-block;
+    width: 5em;
+}
+
+@media all and (max-device-width: 1366px){
+        #main {
+        font-size: 15px;
+    }
+}
+
+

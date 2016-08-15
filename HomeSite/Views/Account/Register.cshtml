@@ -1,0 +1,73 @@
+﻿@model HomeSiteDomain.Models.RegisterViewModel
+@{
+    ViewBag.Title = "Register";
+}
+
+
+<div class="manage-container" id="manage-index-container">
+    <div class="manage-container-background" id="manage-index">
+        <div id="top-division">
+            <h2>@ViewBag.Title.</h2>
+            <h4>Create a new account.</h4>
+            <hr />
+        </div>
+        <div id="bot-division">
+            @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal manage-content", role = "form" }))
+            {
+                @Html.AntiForgeryToken()
+
+
+                <div class="manage-content-background">
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.Email, new { @class = "col-md-2 control-label" })
+                        <div class="col-md-10">
+                            @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.FirstName, new { @class = "col-md-2 control-label" })
+                        <div class="col-md-10">
+                            @Html.TextBoxFor(m => m.FirstName, new { @class = "form-control" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.Password, new { @class = "col-md-2 control-label" })
+                        <div class="col-md-10">
+                            @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.ConfirmPassword, new { @class = "col-md-2 control-label" })
+                        <div class="col-md-10">
+                            @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            <input type="submit" class="btn btn-default" value="Register" />
+                        </div>
+                    </div>
+                </div>
+                @Html.ValidationSummary("", new { @class = "text-danger" })
+            }
+        </div>
+    </div>
+</div>
+
+@section Css{
+    <link rel="stylesheet" href="~/Content/Stylesheets/identity.css" />
+    <style>
+
+        .validation-summary-errors {
+            position: absolute;
+            top: 2em;
+            left: 12em;
+            color: red;
+            width: 400px;
+        }
+    </style>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

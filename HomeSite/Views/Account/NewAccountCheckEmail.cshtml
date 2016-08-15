@@ -1,0 +1,21 @@
+﻿@model string
+@{
+    ViewBag.Title = "NewAccountCheckEmail";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="manage-container" id="manage-index-container">
+    <div class="manage-container-background" id="manage-index">
+        <h2>NewAccountCheckEmail</h2>
+
+        @Html.Raw(Model)
+
+    </div>
+</div>
+
+@section Css{
+    <link rel="stylesheet" href="~/Content/Stylesheets/identity.css" />
+    <style>
+    </style>
+}

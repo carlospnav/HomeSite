@@ -1,0 +1,33 @@
+﻿@model HomeSiteDomain.Models.Photos.CreatePhotoViewModel
+
+@{
+    ViewBag.Title = "Create Photo";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<section class="form-container">
+    <div class="form-container-background">
+        @using (Html.BeginForm("CreatePhoto", "Photo", new { albumId = ViewBag.albumId }, FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            <div id="photo-validation-container">
+                @Html.ValidationSummary()
+            </div>
+            @Html.AntiForgeryToken()
+            <fieldset id="create-photo-fieldset">
+                <legend>Create Photo</legend>
+                @Html.LabelFor(m => m.PhotoName, new { @class = "fieldset-input" }) @Html.TextBoxFor(m => m.PhotoName, new { @class = "fieldset-input" }) 
+                @Html.LabelFor(m => m.Description, new { @class = "fieldset-input" }) @Html.TextAreaFor(m => m.Description, new { @class = "fieldset-input" })
+                @Html.LabelFor(m => m.Photo, new { @class = "fieldset-input", id = "photofile-label" }) @Html.TextBoxFor(m => m.Photo, new { type = "file" }) 
+                <input type="submit" value="Create" />
+            </fieldset>
+        }
+
+        <div class="cancel-button">
+            @Html.ActionLink("Cancel", "Index", new { }, new { style = "color: white;" })
+        </div>
+    </div>
+</section>
+
+
+@section Css {
+    <link rel="stylesheet" href="~/Content/Stylesheets/admin-tools.css" />
+}

@@ -1,0 +1,49 @@
+﻿@using HomeSiteDomain.Models.About
+@model Profile
+
+<div id="main-list-top">
+
+    @if (ViewBag.detailsParam == "Proficiencies")
+    {
+        <div id="main-list-titles">
+            @Ajax.ActionLink("Interests", "GetProfileDetails", new { detailsParam = "Interests" }, new AjaxOptions { UpdateTargetId = "main-list-navigator-container", HttpMethod = "POST", OnSuccess = "AddDetailsBindings", OnBegin = "ShowLoading" }, new { @class = "main-list-title-toggler", id = "proficiencies-title-toggler" })
+            <h4 class="main-list-title-plain" id="proficiencies">Proficiencies</h4>
+        </div>
+    }
+    else if (ViewBag.detailsParam == "Interests")
+    {
+        <div id="main-list-titles">
+            @Ajax.ActionLink("Proficiencies", "GetProfileDetails", new { detailsParam = "Proficiencies" }, new AjaxOptions { UpdateTargetId = "main-list-navigator-container", HttpMethod = "POST", OnSuccess = "AddDetailsBindings", OnBegin = "ShowLoading" }, new { @class = "main-list-title-toggler", id = "interests-title-toggler" })
+            <h4 class="main-list-title-plain" id="interests">Interests</h4>
+        </div>
+    }
+
+
+    @*<div class="loading-icon" id="main-list-loading-icon">
+            <img src="~/Content/Images/AboutMe/LinkIcons/loading-gif.gif" />
+        </div>*@
+
+</div>
+<div id="main-list-bot">
+    <div id="main-list-ribbon"></div>
+    <div id="main-list-navigation-links">
+        @if (ViewBag.detailsParam == "Proficiencies")
+        {
+            <ul class="main-details-list">
+                @foreach (var item in Model.Proficiencies)
+                {
+                    <li class="main-details-list-item" id="@String.Format(item.ProficiencyId + "proficiencies")">@item.Name</li>
+                }
+            </ul>
+        }
+        else if (ViewBag.detailsParam == "Interests")
+        {
+            <ul class="main-details-list">
+                @foreach (var item in Model.Interests)
+                {
+                    <li class="main-details-list-item" id="@String.Format(item.InterestId + "interests")">@item.Name</li>
+                }
+            </ul>
+        }
+    </div>
+</div>

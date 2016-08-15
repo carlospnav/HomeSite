@@ -1,0 +1,49 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.40629.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HomeSite", "HomeSite\HomeSite.csproj", "{12744793-74FF-4D6A-A186-2138BB1A2905}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HomeSite.Tests", "HomeSite.Tests\HomeSite.Tests.csproj", "{1A2ED980-56BD-4FDF-A914-1607E836F5D7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HomeSiteDomain", "HomeSiteDomain\HomeSiteDomain.csproj", "{143B0496-5C64-4E7F-825F-B489C43A8BBA}"
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 4
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://tiev.visualstudio.com/
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = HomeSite.Tests\\HomeSite.Tests.csproj
+		SccProjectName1 = HomeSite.Tests
+		SccLocalPath1 = HomeSite.Tests
+		SccProjectUniqueName2 = HomeSite\\HomeSite.csproj
+		SccProjectName2 = HomeSite
+		SccLocalPath2 = HomeSite
+		SccProjectUniqueName3 = HomeSiteDomain\\HomeSiteDomain.csproj
+		SccProjectName3 = HomeSiteDomain
+		SccLocalPath3 = HomeSiteDomain
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{12744793-74FF-4D6A-A186-2138BB1A2905}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{12744793-74FF-4D6A-A186-2138BB1A2905}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{12744793-74FF-4D6A-A186-2138BB1A2905}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{12744793-74FF-4D6A-A186-2138BB1A2905}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1A2ED980-56BD-4FDF-A914-1607E836F5D7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1A2ED980-56BD-4FDF-A914-1607E836F5D7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1A2ED980-56BD-4FDF-A914-1607E836F5D7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1A2ED980-56BD-4FDF-A914-1607E836F5D7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{143B0496-5C64-4E7F-825F-B489C43A8BBA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{143B0496-5C64-4E7F-825F-B489C43A8BBA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{143B0496-5C64-4E7F-825F-B489C43A8BBA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{143B0496-5C64-4E7F-825F-B489C43A8BBA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

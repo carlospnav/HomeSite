@@ -1,0 +1,191 @@
+﻿@model IEnumerable<HomeSiteDomain.Models.Photos.Album>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<a id="return-button"></a>
+<div id="photography-upper-wrapper" data-auth="@ViewBag.IsAuthedAsAdmin" @if (ViewBag.Redirected) { @: data-routevalue="@ViewBag.RouteValue"
+                    } data-request-running="false">
+
+    <section class="overview" id="photography-overview">
+        <div id="details-photo-container">
+            <div id="overview-photo-container">
+                <div id="overview-photo-background">
+                    <div id="overview-instructions">
+                        <h1>Welcome to the Photo Application</h1>
+                        <h2>Please, select an album below to start browsing</h2>
+                        <img id="instruction-arrow" src="~/Content/Images/Photography/whitearrow.png" />
+                        @*This is where the Redirection error div will appear.*@
+                    </div>
+                    @*The main photo will be displayed here by clicking on the thumbnails on the side.*@
+                </div>
+            </div>
+        </div>
+        <div class="side-container">
+            <div class="side-background">
+                <div class="button-container" id="add-photo-button-container">
+                    <h2>Photos</h2>
+                </div>
+                <div class="side-content">
+                    @* Photos will be added here dynamically. *@
+                </div>
+                <div class="pagination-container" id="paginator">
+                    @* Photo pages will be added here dynamically. *@
+                </div>
+            </div>
+        </div>
+        <div class="bottom-container" id="overview-bottom-container">
+            <div class="bottom-background">
+                @if (ViewBag.IsAuthedAsAdmin)
+                {
+                    <div class="add-button-container">
+                        @Html.ActionLink("+", "CreateAlbum", new { }, new { @class = "button", id = "add-album" })
+                    </div>
+                }
+
+                <h2>Albums</h2>
+                <h2 id="opening-bracket"><</h2>
+                <div id="album-content">
+                    @foreach (var album in Model)
+                    {
+                        <div class="img-background">
+                            <img class="album-element" data-album-name="@album.AlbumName" onclick="generatePhotos(@album.AlbumId, 8)" src="@Url.Content(album.ThumbnailUrl)" style="background-size: 100%">
+                            <div id="album-controls-container">
+                                <p>@album.AlbumName</p>
+                                @if (ViewBag.IsAuthedAsAdmin)
+                                {
+                                    <div id="album-buttons-container">
+                                        <div id="remove-album">
+                                            @Html.ActionLink("X", "DeleteAlbum", new { albumId = album.AlbumId }, new { @class = "button", id = "remove-album" })
+                                        </div>
+                                        <div id="edit-album">
+                                            @Html.ActionLink("Edit", "EditAlbum", new { albumId = album.AlbumId }, new { @class = "button", id = "edit-album" })
+                                        </div>
+                                    </div>
+                                }
+                            </div>
+                        </div>
+                    }
+                </div>
+                <h2 id="closing-bracket">></h2>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- HORIZONTAL PHOTO DETAILS -->
+
+    <section class="overview" id="horizontal-photography-details">
+        <div class="two-container-flex">
+            <div class="details-photo-container" id="horizontal-photography-details-container">
+                <img id="horizontal-details-image" src="" />
+                @if (ViewBag.IsAuthed)
+                {
+                    <div class="photo-like-container photo-like-initial">
+                        <p>&#128077</p>
+                    </div>
+                }
+            </div>
+            <div class="bottom-container" id="horizontal-photography-bottom-container">
+                <div class="bottom-background" id="horizontal-photography-bottom-background">
+                    <h5 class="photo-title" id="horizontal-photo-title">
+                        @*Photo titles will be added here dynamically.*@
+                    </h5>
+                    <p class="photo-description" id="horizontal-photo-description">
+                        @*Photo descriptions will be added here dynamically.*@
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="side-container" id="horizontal-side-container">
+            <div class="side-background" id="horizontal-side-background">
+                <div class="side-content" id="horizontal-side-content">
+                    <!-- This is where comments go -->
+                </div>
+                <div class="pagination-container" id="horizontal-pagination-container">
+                    <div class="comment-expanded-container" id="horizontal-comment-expanded-container">
+                        <div><textarea></textarea></div><button id="horizontal-send-comment">Comment</button><label>0/320</label>
+                    </div>
+                    <div class="comment-expandable-container" id="horizontal-comment-expandable-container">
+                        <div class="comments-flex-wrapper" id="horizontal-comments-flex-wrapper">
+                            <input type="text" id="horizontal-comment-expandable-control" placeholder="Click to open comment box" /> <h5 id="horizontal-like-count"></h5>
+                        </div>
+                        <div class="pagination-flex-wrapper" id="horizontal-pagination-flex-wrapper">
+
+                            <div class="comment-pages" id="horizontal-comment-pages">
+                                <!-- Pages of Comments -->
+                            </div>
+                        </div>
+                        <p class="error-text" id="horizontal-details-error-text">There was a problem reading the like count for this photo. Please try again later or contact an admin.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+
+    <!-- VERTICAL PHOTO DETAILS -->
+
+    <section class="overview" id="vertical-photography-details">
+        <div class="details-photo-container" id="vertical-photography-details-container">
+            <img id="vertical-details-image" src="/Content/Images/verticalTest.jpg" />
+            @if (ViewBag.IsAuthed)
+            {
+                <div class="photo-like-container photo-like-initial">
+                    <p>&#128077</p>
+                </div>
+            }
+        </div>
+        <div class="two-container-flex">
+            <div class="side-container" id="vertical-side-container">
+                <div class="side-background" id="vertical-side-background">
+                    <div class="side-content" id="vertical-side-content">
+                        <!-- This is where comments go -->
+                    </div>
+                    <div class="pagination-container" id="vertical-pagination-container">
+                        <div class="comment-expanded-container" id="vertical-comment-expanded-container">
+                            <div><textarea></textarea></div><button id="vertical-send-comment">Comment</button><label>0/320</label>
+                        </div>
+                        <div class="comment-expandable-container" id="vertical-comment-expandable-container">
+                            <input type="text" id="vertical-comment-expandable-control" placeholder="Click to open comment box" />
+                            <div class="comment-pages" id="vertical-comment-pages">
+                                <!-- Pages of Comments -->
+                            </div>
+                            <h5 id="vertical-like-count"></h5>
+                            <p class="error-text" id="vertical-details-error-text"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="bottom-container" id="vertical-bottom-container">
+                <div class="bottom-background" id="vertical-bottom-background">
+                    <h5 class="photo-title" id="vertical-photo-title">
+                        Love in the Forest
+                    </h5>
+                    <p class="photo-description" id="vertical-photo-description">
+                        Teodorum lapro saleah apsunslzapos possa ksahshah spaissj shsakhs sposa piass sahkshasakh apos smsnlapisos apsoapos heheakh sapsop saposap ssah peoeapo shs paos apapapapsopaso.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+@section Css
+    {
+    <link rel="stylesheet" href="~/Content/Stylesheets/photography.css" />
+}
+
+@section scripts {
+    <script src="~/Scripts/jquery-2.2.1.min.js"></script>
+    <script src="~/Scripts/jquery.signalR-2.2.0.min.js"></script>
+    <script src="/signalr/hubs"></script>
+    <script type="text/javascript">
+        var isAuthed = @Html.Raw(Json.Encode(ViewBag.IsAuthed));
+        var name = @Html.Raw(Json.Encode(ViewBag.UserName));
+    </script>
+    <script src="~/Scripts/Photo/Photo.js"></script>
+}

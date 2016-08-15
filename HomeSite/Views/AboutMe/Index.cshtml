@@ -1,0 +1,83 @@
+﻿@model HomeSiteDomain.Models.About.Profile
+@{
+    ViewBag.Title = "Index";
+}
+
+<section id="profile-page" class="container">
+    <div id="profile-picture-container">
+        <div id="profile-picture">
+            <img id="profile-picture-img" src="~/Content/Images/profile-pic.jpg" />
+        </div>
+        <div id="speech-bubble">
+            <div id="speech">
+                @Model.WelcomeText
+            </div>
+        </div>
+    </div>
+    <div id="picture-ribbon"></div>
+    <div class="profile-details-container">
+        <nav id="side-list-navigator-container">
+            <div id="side-list-ribbon"></div>
+            <div id="side-list-container">
+                <div></div>
+                <div></div>
+                <div id="side-list">
+                    <div id="resume-container">
+                        <div>
+                            <p>Get</p>
+                        </div>
+                        <div>
+                            <p>Resume</p>
+                        </div>
+                        <div>
+
+                                @Html.ActionLink(HttpUtility.HtmlDecode("&#128463;"), "GetResume")
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="side-media-container">
+                <a id="fb-icon" href="https://www.facebook.com/carlos.navarretti">
+                    <img class="link-icons" id="fb-icon-image" src="~/Content/Images/AboutMe/LinkIcons/fbicon.png" target="_blank" />
+                </a>
+                <a id="linkedin-icon" href="https://br.linkedin.com/">
+                    <img class="link-icons" id="linkedin-icon-image" src="~/Content/Images/AboutMe/LinkIcons/linkedin-icon.png" target="_blank" />
+                </a>
+            </div>
+        </nav>
+        <nav id="main-list-navigator-container">
+            @*<div id="main-list-top">
+                <div id="main-list-titles">
+                    <a class="main-list-title-toggler">Proficiencies</a>
+                    <h4 class="main-list-title-plain">Interests</h4>
+                </div>
+            </div>
+            <div id="main-list-bot">
+                <div id="main-list-ribbon"></div>
+                <div id="main-list-navigation-links">
+                    <ul class="main-details-list">
+                        <li class="main-details-list-item">Web Development</li>
+                        <li class="main-details-list-item">.Net Technologies</li>
+                        <li class="main-details-list-item">Cauliflower studies</li>
+                    </ul>
+                </div>
+            </div>*@
+            @Html.Action("GetProfileDetails")
+        </nav>
+        <article id="description-container">
+            <p>@Model.Description</p>
+        </article>
+    </div>
+</section>
+<section id="side-page" class="container" data-toggler='off'></section>
+
+
+@section Css{
+    <link rel="stylesheet" href="~/Content/Stylesheets/aboutme.css" />
+}
+
+@section scripts {
+    <script src="~/Scripts/AboutMe/aboutme.js"></script>
+}
+

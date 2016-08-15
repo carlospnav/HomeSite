@@ -1,0 +1,30 @@
+﻿@model HomeSiteDomain.Models.Photos.EditAlbumViewModel
+
+@{
+    ViewBag.Title = "Edit Album";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section class="form-container">
+    <div class="form-container-background">
+        @using (Html.BeginForm("EditAlbum", "Photo", new { albumId = ViewBag.albumId }, FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            @Html.ValidationSummary()
+            @Html.AntiForgeryToken()
+            <fieldset>
+                <legend>Album</legend>
+                @Html.LabelFor(m => m.AlbumName, new { @class = "fieldset-input" }) @Html.TextBoxFor(m => m.AlbumName, new { @class = "fieldset-input" })
+                @Html.LabelFor(m => m.Thumbnail, new { @class = "fieldset-input" }) @Html.TextBoxFor(m => m.Thumbnail, new { type = "file" })
+                <input type="submit" value="Create" />
+            </fieldset>
+        }
+
+        <div class="cancel-button" id="album-cancel-button">
+            @Html.ActionLink("Cancel", "Index", new { }, new { style = "color: white;" })
+        </div>
+    </div>
+</section>
+
+@section Css {
+    <link rel="stylesheet" href="~/Content/Stylesheets/admin-tools.css" />
+}

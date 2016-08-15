@@ -1,0 +1,27 @@
+﻿@model System.Web.Mvc.HandleErrorInfo
+
+@{
+    ViewBag.Title = "Error";
+}
+
+<div class="manage-container" id="manage-index-container">
+    <div class="manage-container-background" id="manage-index">
+        <h2 class="text-danger">An error occurred while processing your request.</h2>
+        <h2>Message: @Model.Exception.Message</h2>
+        <h2>Caused at: @Model.Exception.TargetSite</h2>
+        <h2></h2>
+    </div>
+</div>
+
+@section Css{
+    <link rel="stylesheet" href="~/Content/Stylesheets/identity.css" />
+    <style>
+        h2{
+            font-size: 1rem;
+        }
+        h2:nth-of-type(1){
+            font-size: 2rem;
+        }
+    </style>
+}
+

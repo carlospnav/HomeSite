@@ -1,0 +1,27 @@
+﻿@{
+    ViewBag.Title = "Confirm Email";
+}
+
+
+<div class="manage-container" id="manage-index-container">
+    <div class="manage-container-background" id="manage-index">
+        <h2>@ViewBag.Title.</h2>
+        <div>
+            <p>
+                Thank you for confirming your email. Please @Html.ActionLink("Click here to Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })
+            </p>
+        </div>
+    </div>
+</div>
+
+@section Css{
+    <link rel="stylesheet" href="~/Content/Stylesheets/identity.css" />
+    <style>
+        #loginLink{
+            color: white;
+        }
+        #loginLink:link{
+            text-decoration: underline;
+        }
+    </style>
+    }

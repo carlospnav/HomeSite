@@ -1,0 +1,96 @@
+﻿@using HomeSiteDomain.Models
+@model LoginViewModel
+@{
+    ViewBag.Title = "Log in";
+}
+
+<div class="manage-container" id="manage-index-container">
+    <div class="manage-container-background" id="manage-index">
+        <div id="top-division">
+            <h2>@ViewBag.Title.</h2>
+            <h4>Use a local account to log in.</h4>
+            <h4>Use another service to log in.</h4>
+            <hr />
+        </div>
+
+        <div class="manage-content">
+            <div id="manage-top">
+                <section id="identity-form">
+                    @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+                    {
+                        @Html.AntiForgeryToken()
+
+                        <div class="manage-content-background">
+                            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                            <div class="form-group">
+                                @Html.LabelFor(m => m.Email, new { @class = "col-md-2 control-label" })
+
+                                @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+
+                            </div>
+                            <div class="form-group">
+                                @Html.LabelFor(m => m.Password, new { @class = "col-md-2 control-label" })
+
+                                @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+
+                            </div>
+
+                            <div class="form-group">
+                                <div class="col-md-offset-2 col-md-10">
+                                    <div class="checkbox">
+                                        @Html.CheckBoxFor(m => m.RememberMe)
+                                        @Html.LabelFor(m => m.RememberMe)
+                                    </div>
+                                </div>
+                            </div>
+                            <br />
+                            <div class="form-group">
+                                <div class="col-md-offset-2 col-md-10">
+                                    <input type="submit" value="Log in" class="btn btn-default" />
+                                </div>
+                            </div>
+                        </div>
+
+                    }
+                </section>
+                <div class="col-md-4 identity-form">
+                    <section id="socialLoginForm">
+                        @Html.Partial("_ExternalLoginsListPartial", new ExternalLoginListViewModel { ReturnUrl = ViewBag.ReturnUrl })
+                    </section>
+                </div>
+            </div>
+            <div id="manage-bot">
+                <div class="password-links">
+                    <p>
+                        @Html.ActionLink("Register as a new user", "Register")
+                    </p>
+
+                    <p>
+                        @Html.ActionLink("Forgot your password?", "ForgotPassword")
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Css{
+    <link rel="stylesheet" href="~/Content/Stylesheets/identity.css" />
+    <style>
+        .field-validation-error {
+            font-size: .8rem;
+            color: red;
+        }
+
+        #Facebook{
+            position: relative;
+            top: -10px;
+        }
+    </style>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

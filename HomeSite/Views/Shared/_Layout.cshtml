@@ -1,0 +1,38 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HomeSite</title>
+    <link type="text/css" rel="stylesheet" href="~/Content/Site.css" />
+    @RenderSection("Css", false)
+    <script src="~/Scripts/jquery-2.2.1.js"></script>
+    <script src="~/Scripts/jquery.unobtrusive-ajax.js"></script>
+</head>
+<body>
+    <div id="main">
+        <div class="navbar-top">
+            <div class="navbar-name-text">
+                @Html.ActionLink("Carlos Navarrete", "Index", "Home")
+            </div>
+            <img class="certification-image" src="~/Content/Images/mcp-certified-logo.jpg" />
+            <nav class="nav-buttons">
+                @Html.ActionLink("About me", "Index", "AboutMe")
+                <a class="inactive-nav-button">Tools</a>
+                @Html.ActionLink("Photography", "Index", "Photo")
+            </nav>
+            <img id="top-loading-gif" src="~/Content/Images/loading-gif.gif" />
+            @Html.Partial("_LoginPartial")
+        </div>
+        <div class="center-content-container">
+            @RenderBody()
+        </div>
+        <footer>
+            <div id="footer-text">
+                @DateTime.Now.Year - All Rights Reserved
+            </div>
+        </footer>
+        @RenderSection("scripts", required: false)
+    </div>
+</body>
+</html>
